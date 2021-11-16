@@ -99,12 +99,34 @@ int main()
 	Start();
 	system("cls"); // приветствие отработало. дальше - меню...
 
-	int size = 9, 
+
+	int buff;
+	int size = 9;
 	int min = 0, max = 8; // выбираем диапазон чисел для рандома
 	int* pole = new int[size];
 
-	int result = Random_not_duble(size, pole, min, max); 
+	int result = Random_not_duble(size, pole, min, max);
+	for (size_t i = 0; i < size; i++)
+		//std::cout << pole[i] << " "; 
+	                                     //сейчас просто вывод рандома без повторений.
+
+
+	if (pole[0]!=0)
+	{
+		buff = pole[0];
 		for (size_t i = 0; i < size; i++)
-			std::cout << pole[i] << " "; //сейчас просто вывод рандома без повторений. я спать.
+		{
+			if (pole[i]==0)
+			{
+				pole[0] = pole[i];
+				pole[i] = buff;
+			}
+		}
+	}                                    //  поставил ноль в начало всегда.
+	for (size_t i = 0; i < size; i++)
+		std::cout << pole[i] << " ";
+	
+	int x_min = 0, y_min = 0, x_max = size / 2, y_max = size / 2; // пытаюсь создать координаты.
+	
 	
 }
