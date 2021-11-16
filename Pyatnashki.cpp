@@ -20,6 +20,8 @@
 #include<conio.h>
 #include<string>
 #include<vector>
+#include<ctime>
+#include <algorithm>
 
 void setCursorPosition(int x, int y)
 {
@@ -28,6 +30,7 @@ void setCursorPosition(int x, int y)
 	COORD coord = { (SHORT)x, (SHORT)y };
 	SetConsoleCursorPosition(hOut, coord);
 }
+//ф-ция для перемещния курсора - для выбора строк и редактирования символов
 
 void Logo()
 {
@@ -59,14 +62,49 @@ void Start()
 // текст о том, что бы нажали кнопку, что бы начать игру.
 
 
+int Random_not_duble(int size, int* arr, int min, int max)
+{		
+	int dupl;// дубликаты
+	int value;// значение
+	int span = max - min + 1;// диапазон чисел
+
+	for (size_t i = 0; i < size; i++)
+	{
+		for (; ; ) 
+		{
+			value = min + rand() % span;
+			dupl = 0;
+			for (size_t j = 0; j < i; j++)
+			{
+				if (value == arr[j])
+				{ dupl = 1;
+					break; 
+				}
+			}
+			if (!dupl)
+			 break;
+		}
+		arr[i] = value;
+	}
+	return 0;
+}
+// ф-ция для рандома без дублей.
 int main()
 {
 	setlocale(LC_ALL, "ru"); // использую русский язык
+	srand((int)time(NULL));
+
 	system("cls");  // зачищаю перед началом
 	Logo();
 	Start();
-	system("cls");
-	std::vector<std::vector<int>>pole;
+	system("cls"); // приветствие отработало. дальше - меню...
 
+	int size = 9, 
+	int min = 0, max = 8; // выбираем диапазон чисел для рандома
+	int* pole = new int[size];
 
+	int result = Random_not_duble(size, pole, min, max); 
+		for (size_t i = 0; i < size; i++)
+			std::cout << pole[i] << " "; //сейчас просто вывод рандома без повторений. я спать.
+	
 }
