@@ -70,8 +70,8 @@ int main()
 			case 32:                     break; //пробел
 		}
 	} while (true);*/
-	int arr[1];
-	for (size_t i = 0; i < 1; i++)
+	int arr[5];
+	for (size_t i = 0; i < 5; i++)
 	{
 		arr[i] = _getch();
 		std::cout << arr[i] << " ";
@@ -120,240 +120,223 @@ int main()
 	int y_buff = 1;
 	int buff_step = 0;
 	int choice = _getch();
-	
-  do
-  {
-	switch (choice)
-	{
-	case 122:
-
-		x++;
-		
-	default:
-		break;
-	}
-
 
 	
-	if (y == -2)
+	
+
+	 
+
+	while (arr_while==buff_arr);
 	{
-		switch (x)
+		system("cls");
+		switch (choice)
 		{
-		case -2:
-			if (x == -2)
+		case 75:
+			x++;
+			//std::cout << " L";
+		default:
+			break;
+		}
+		std::cout << x;
+		if (y == -2)
+		{
+			switch (x)
 			{
-
-				buff_step = buff_arr[8];
-				buff_arr[8] = buff_arr[7];
-				buff_arr[7] = buff_step;
-
-
-				for (size_t i = 0; i < size; i++)
+			case -2:
+				if (x == -1)
 				{
-					if (enter_size > 3)
+					buff_step = buff_arr[7];
+					buff_arr[7] = buff_arr[8];
+					buff_arr[8] = buff_step;
+					x--;
+					for (size_t i = 0; i < size; i++)
 					{
-						if (buff_arr[i] <= 9)
-							std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
+						if (enter_size > 3)
+						{
+							if (buff_arr[i] <= 9)
+								std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
+							else
+								std::cout << buff_arr[i] << " ";
+						}
 						else
 							std::cout << buff_arr[i] << " ";
-					}
-					else
-						std::cout << buff_arr[i] << " ";
 
-					if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
-					{
-						std::cout << "\n";
+						if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
+						{
+							std::cout << "\n";
+						}
 					}
 				}
+				else
+				{
+					buff_step = buff_arr[8];
+					buff_arr[8] = buff_arr[7];
+					buff_arr[7] = buff_step;
+					x++;
+					for (size_t i = 0; i < size; i++)
+					{
+						if (enter_size > 3)
+						{
+							if (buff_arr[i] <= 9)
+								std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
+							else
+								std::cout << buff_arr[i] << " ";
+						}
+						else
+							std::cout << buff_arr[i] << " ";
+
+						if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
+						{
+							std::cout << "\n";
+						}
+					}
+				}
+
+				break; //правый край (3х3)
+
+			case -1:
+				if (x == -2)
+				{
+					buff_step = buff_arr[8];
+					buff_arr[8] = buff_arr[7];
+					buff_arr[7] = buff_step;
+					x++;
+					for (size_t i = 0; i < size; i++)
+					{
+						if (enter_size > 3)
+						{
+							if (buff_arr[i] <= 9)
+								std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
+							else
+								std::cout << buff_arr[i] << " ";
+						}
+						else
+							std::cout << buff_arr[i] << " ";
+
+						if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
+						{
+							std::cout << "\n";
+						}
+					}
+				}
+				else
+				{
+					buff_step = buff_arr[6];
+					buff_arr[6] = buff_arr[7];
+					buff_arr[7] = buff_step;
+					x--;
+				}
+
+				break; //середина
+
+			case 0:
+				if (x == -1)
+				{
+					buff_step = buff_arr[7];
+					buff_arr[7] = buff_arr[6];
+					buff_arr[6] = buff_step;
+					x++;
+				}
+				break; //левый край
+
+			default:
+				std::cout << " \nдействие не возможно.";
 				break;
 			}
-			else
-			{
-				buff_step = buff_arr[7];
-				buff_arr[7] = buff_arr[8];
-				buff_arr[8] = buff_step;
-
-				for (size_t i = 0; i < size; i++)
-				{
-					if (enter_size > 3)
-					{
-						if (buff_arr[i] <= 9)
-							std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
-						else
-							std::cout << buff_arr[i] << " ";
-					}
-					else
-						std::cout << buff_arr[i] << " ";
-
-					if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
-					{
-						std::cout << "\n";
-					}
-				}
-			}
-
-			break; //правый край (3х3)
-
-		case -1:
-			if (x == -1)
-			{
-				buff_step = buff_arr[8];
-				buff_arr[8] = buff_arr[7];
-				buff_arr[7] = buff_step;
-				x++;
-				for (size_t i = 0; i < size; i++)
-				{
-					if (enter_size > 3)
-					{
-						if (buff_arr[i] <= 9)
-							std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
-						else
-							std::cout << buff_arr[i] << " ";
-					}
-					else
-						std::cout << buff_arr[i] << " ";
-
-					if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
-					{
-						std::cout << "\n";
-					}
-				}
-			}
-			else
-			{
-				buff_step = buff_arr[6];
-				buff_arr[6] = buff_arr[7];
-				buff_arr[7] = buff_step;
-				x--;
-				for (size_t i = 0; i < size; i++)
-				{
-					if (enter_size > 3)
-					{
-						if (buff_arr[i] <= 9)
-							std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ХОДУЛИ!!!))))
-						else
-							std::cout << buff_arr[i] << " ";
-					}
-					else
-						std::cout << buff_arr[i] << " ";
-
-					if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
-					{
-						std::cout << "\n";
-					}
-				}
-			}
-
-			break; //середина
-
-		case 0:
-			if (x == -1)
-			{
-				buff_step = buff_arr[7];
-				buff_arr[7] = buff_arr[6];
-				buff_arr[6] = buff_step;
-				x++;
-			}
-			break; //левый край
-
-		default:
-			std::cout << " \nдействие не возможно.";
-			break;
 		}
-	}
-	if (y == -1)
-	{
-		switch (x)
+		if (y == -1)
 		{
-		case -2:
-			if (x == -1)
+			switch (x)
 			{
-				buff_step = buff_arr[4];
-				buff_arr[4] = buff_arr[5];
-				buff_arr[5] = buff_step;
-				x--;
-			}
-			break; //правый край (3х3)
+			case -2:
+				if (x == -1)
+				{
+					buff_step = buff_arr[4];
+					buff_arr[4] = buff_arr[5];
+					buff_arr[5] = buff_step;
+					x--;
+				}
+				break; //правый край (3х3)
 
-		case -1:
-			if (x == -2)
-			{
-				buff_step = buff_arr[5];
-				buff_arr[5] = buff_arr[4];
-				buff_arr[4] = buff_step;
-				x++;
-			}
-			else
-			{
-				buff_step = buff_arr[3];
-				buff_arr[3] = buff_arr[4];
-				buff_arr[4] = buff_step;
-				x--;
-			}
+			case -1:
+				if (x == -2)
+				{
+					buff_step = buff_arr[5];
+					buff_arr[5] = buff_arr[4];
+					buff_arr[4] = buff_step;
+					x++;
+				}
+				else
+				{
+					buff_step = buff_arr[3];
+					buff_arr[3] = buff_arr[4];
+					buff_arr[4] = buff_step;
+					x--;
+				}
 
-			break; //середина
+				break; //середина
 
-		case 0:
-			if (x == -1)
-			{
-				buff_step = buff_arr[4];
-				buff_arr[4] = buff_arr[3];
-				buff_arr[3] = buff_step;
-				x++;
+			case 0:
+				if (x == -1)
+				{
+					buff_step = buff_arr[4];
+					buff_arr[4] = buff_arr[3];
+					buff_arr[3] = buff_step;
+					x++;
+				}
+				break; //левый край
+
+			default:
+				std::cout << " \nдействие не возможно.";
+				break;
 			}
-			break; //левый край
-
-		default:
-			std::cout << " \nдействие не возможно.";
-			break;
 		}
-	}
-	if (y == 0)
-	{
-		switch (x)
+		if (y == 0)
 		{
-		case -2:
-			if (x == -1)
+			switch (x)
 			{
-				buff_step = buff_arr[1];
-				buff_arr[1] = buff_arr[2];
-				buff_arr[2] = buff_step;
-				x--;
-			}
-			break; //правый край (3х3)
+			case -2:
+				if (x == -1)
+				{
+					buff_step = buff_arr[1];
+					buff_arr[1] = buff_arr[2];
+					buff_arr[2] = buff_step;
+					x--;
+				}
+				break; //правый край (3х3)
 
-		case -1:
-			if (x == -2)
-			{
-				buff_step = buff_arr[2];
-				buff_arr[2] = buff_arr[1];
-				buff_arr[1] = buff_step;
-				x++;
-			}
-			else
-			{
-				buff_step = buff_arr[0];
-				buff_arr[0] = buff_arr[1];
-				buff_arr[1] = buff_step;
-				x--;
-			}
+			case -1:
+				if (x == -2)
+				{
+					buff_step = buff_arr[2];
+					buff_arr[2] = buff_arr[1];
+					buff_arr[1] = buff_step;
+					x++;
+				}
+				else
+				{
+					buff_step = buff_arr[0];
+					buff_arr[0] = buff_arr[1];
+					buff_arr[1] = buff_step;
+					x--;
+				}
 
-			break; //середина
+				break; //середина
 
-		case 0:
-			if (x == -1)
-			{
-				buff_step = buff_arr[1];
-				buff_arr[1] = buff_arr[0];
-				buff_arr[0] = buff_step;
-				x++;
+			case 0:
+				if (x == -1)
+				{
+					buff_step = buff_arr[1];
+					buff_arr[1] = buff_arr[0];
+					buff_arr[0] = buff_step;
+					x++;
+				}
+				break; //левый край
+
+			default:
+				std::cout << " \nдействие не возможно.";
+				break;
 			}
-			break; //левый край
-
-		default:
-			std::cout << " \nдействие не возможно.";
-			break;
 		}
 	}
-  }while (buff_arr == arr_while);
 }
