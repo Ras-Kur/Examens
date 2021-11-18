@@ -21,12 +21,16 @@ int main()
 	
 	int* buff_arr = new int[size]; 					   //	использую дл€ дл€ временного хранени€
 	
-	for (size_t i = 0; i < size; i++)				 //		заполн€ю массив уникальными знач-ми (-1)
+	int buff_num = 0;						    	 //		переменна€ дл€ буфера значени€
+	
+	for (size_t i = 0; i < size; i++)				  //	заполн€ю массив уникальными знач-ми (-1)
 		buff_arr[i] = -1;
 
 
 
-	for (int i = 0; i < size; )				         //		заполн€ю динамический массив рандомом 
+//  заполн€ю динамический массив рандомом
+//             \|/
+	for (int i = 0; i < size; )				          
 	{
 		cheсk_double = true;
 		int	rand_num = rand() % size;
@@ -45,9 +49,7 @@ int main()
 			i++;
 		}
 	}           
-	
-	for (size_t i = 0; i < size; i++)
-		std::cout << buff_arr[i]<< "..";
+
 
 	/*do
 	{
@@ -68,8 +70,12 @@ int main()
 		std::cout << arr[i] << " ";
 	}*/
 
-	int buff_num = 0;											  //		переменна€ дл€ буфера значени€
-	for (size_t i = 0; i < size; i++)								//		ставлю ноль в конец заменой чисел
+	
+	
+
+//   ставлю ноль в конец с заменой чисел
+//              \|/
+for (size_t i = 0; i < size; i++)								
 	{
 		if (buff_arr[i]==0&&buff_arr[i]!= buff_arr[size - 1])
 		{
@@ -79,9 +85,27 @@ int main()
 
 		}
 	}
-	
-	for (size_t i = 0; i < size; i++)
-		std::cout << buff_arr[i];
 
 	
+//это красивый вывод, ну как красивый, при€тно глазу.
+//               \|/
+	for (size_t i = 0; i < size; i++)
+	{
+		if (enter_size>3)
+		{
+			if (buff_arr[i] <= 9)
+				std::cout << "0" << buff_arr[i] << " ";     // это не просто костыль, - это ’ќƒ”Ћ»!!!))))
+			else
+				std::cout << buff_arr[i] << " ";
+		}
+		else
+			std::cout << buff_arr[i] << " ";
+		
+		if (i == enter_size - 1 || i == enter_size * 2 - 1 || i == enter_size * 3 - 1)  // скорее всего тоже можно иначе.
+		{
+			std::cout << "\n";
+		}
+	}
+
+
 }
