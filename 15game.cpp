@@ -114,8 +114,6 @@ int main()
 	
 	int& a16 = buff_arr[15];
 	
-	//int	swipe_buff = (Swipe(buff_arr, arr_while, size));
-	//system("cls");
 
 	//  заполняю динамический массив рандомом
 	//             \|/
@@ -221,7 +219,7 @@ int main()
 	
 	if (a == 1 && b == 1);
 	{	time_t seconds;				// старт отсчета времени
-	    seconds = time(NULL);//3x3
+	    seconds = time(NULL);	//3x3
 		while (Swipe(buff_arr, arr_while, size) == 0)
 		{
 			if (x > 0)
@@ -247,50 +245,9 @@ int main()
 			
 			switch (_getch())
 			{
-				int mark = -1; // маркер предыдущего местоположения
-				int mark2 = -1; 
 			case 75://лево
 				x++;
 				steps++;
-				if (x==-2)
-				{
-					if (y == -2)
-						Step(a8, a9);
-					if (y == -1)
-						Step(a5, a6);
-					if (y == 0)
-						Step(a2, a3);
-					mark = 1;
-				}
-				if (x==-1)
-				{
-					if (mark == 1)
-					{
-						if (y == -2)
-							Step(a8, a9);
-						if (y == -1)
-							Step(a5, a6);
-						if (y == 0)
-							Step(a2, a3);
-						break;
-					}
-					if (y == -2)
-						Step(a7, a8);
-					if (y == -1)
-						Step(a4, a5);
-					if (y == 0)
-						Step(a2, a1);
-				}
-				if (x==0)
-				{
-					if (y == -2)
-						Step(a7, a8);
-					if (y == -1)
-						Step(a4, a5);
-					if (y == 0)
-						Step(a1, a2);
-					mark = 0;
-				}
 				system("cls");
 				print_arr_rand(buff_arr, enter_size, size);
 				
@@ -299,45 +256,6 @@ int main()
 
 				x--;
 				steps++;
-				if (x == -2)
-				{
-					if (y == -2)
-						Step(a8, a9);
-					if (y == -1)
-						Step(a5, a6);
-					if (y == 0)
-						Step(a2, a3);
-					mark = 1;
-				}
-				if (x == -1)
-				{
-					if (mark == 1)
-					{
-						if (y == -2)
-							Step(a8, a9);
-						if (y == -1)
-							Step(a5, a6);
-						if (y == 0)
-							Step(a2, a3);
-						break;
-					}
-					if (y == -2)
-						Step(a7, a8);
-					if (y == -1)
-						Step(a4, a5);
-					if (y == 0)
-						Step(a2, a1);
-				}
-				if (x == 0)
-				{
-					if (y == -2)
-						Step(a7, a8);
-					if (y == -1)
-						Step(a4, a5);
-					if (y == 0)
-						Step(a1, a2);
-					mark = 0;
-				}
 				system("cls");
 				print_arr_rand(buff_arr, enter_size, size);
 				
@@ -346,7 +264,6 @@ int main()
 					// задал клавишам параметры
 				y++;
 				steps++;
-				
 				system("cls");
 				print_arr_rand(buff_arr, enter_size, size);			
 			
@@ -355,44 +272,6 @@ int main()
 			case 80:
 				y--;
 				steps++;
-				if (y == -2)
-				{
-					if (x == -2)
-						Step(a6, a9);
-					if (x == -1)
-						Step(a5, a8);
-					if (x == 0)
-						Step(a4, a7);
-					mark2 = 1;
-				}
-				if (y == -1)
-				{
-					if (mark2 == 1)
-					{
-						if (x == -2)
-							Step(a9, a6);
-						if (x == -1)
-							Step(a8, a5);
-						if (x == 0)
-							Step(a7, a4);
-					}
-					if (x == -2)
-						Step(a6, a3);
-					if (x == -1)
-						Step(a5, a2);
-					if (x == 0)
-						Step(a4, a1);
-				}
-				if (y == 0)
-				{
-					if (x == -2)
-						Step(a6, a3);
-					if (x == -1)
-						Step(a5, a2);
-					if (x == 0)
-						Step(a4, a1);
-					mark2 = 0;
-				}
 				system("cls");
 				print_arr_rand(buff_arr, enter_size, size);		
 				
@@ -410,7 +289,107 @@ int main()
 			default:
 				//std::cout << "\n\n   роп  управление - на стрелки, \"esc\" - выход.";
 				break;
-			}	
+			}
+			//-----------------------------------------------------------//
+			
+				int mark = -1; // маркер предыдущего местоположения
+				switch (x)				// действия при х переданном выше сюда
+				{
+				
+				case -2://лево
+					if (y == -2)
+						Step(a8, a9);
+					if (y == -1)
+						Step(a5, a6);
+					if(y==0)
+					Step(a2, a3);
+					mark = 1;
+					break;
+
+				case -1://середина
+					if (mark == 1)
+					{
+						if (y == -2)
+							Step(a8, a9);
+						if (y == -1)
+							Step(a5, a6);
+						if(y==0)
+						Step(a2, a3);
+						break;
+					}
+					if (y == -2)
+						Step(a7, a8);
+					if (y == -1)
+						Step(a4, a5);
+					if(y==0)
+					Step(a2, a1);
+					break;
+
+				case 0://право
+					if (y == -2)
+						Step(a7, a8);
+					if (y == -1)
+						Step(a4, a5);
+					if(y==0)
+					Step(a1, a2);
+					mark = 0;
+					break;
+
+				default:
+					std::cout << "\n\n     управление - на стрелки, \"esc\" - выход.";
+					break;
+					
+				}
+				
+			
+			
+				int mark2 = -1; // маркер предыдущего местоположения
+				switch (y)
+				{
+					
+				case -2://лево
+					if (x == -2)
+						Step(a6, a9);
+					if (x == -1)
+						Step(a5, a8);
+					if(x==0)
+					Step(a4, a7);
+					mark2 = 1;
+					break;
+
+				case -1://середина
+					if (mark2 == 1)
+					{
+						if (x == -2)
+							Step(a9, a6);
+						if (x == -1)
+							Step(a8, a5);
+						if (x == 0)
+						Step(a7, a4);
+					}
+					if (x == -2)
+						Step(a6, a3);
+					if (x == -1)
+						Step(a5, a2);
+					if (x == 0)
+					Step(a4, a1);
+					break;
+
+				case 0://право
+					if (x == -2)
+						Step(a6, a3);
+					if (x == -1)
+						Step(a5, a2);
+					if (x == 0)
+					Step(a4, a1);
+					mark2 = 0;
+					break;
+				default:
+					std::cout << "\n\n     управление - на стрелки, \"esc\" - выход.";
+					break;
+					
+				}
+				
 		}
 		std::cout << "\n\t\t !!! ВЫ СМОГЛИ ЭТО СДЕЛАТЬ !!! \n";
 		time_t second2;
@@ -420,25 +399,6 @@ int main()
 		std::cout << "\nпотрачено времени - " << res_time;
 		return 0;
 
-	}//if (a == 2 && b == 1)
-	
-	
-	
-	
-	/*do
-	
-	        system("cls");
-			Step(a9, a8);
-			print_arr_rand(buff_arr, enter_size, size);
+	}//if (a == 2 && b == 1) 4x4
 
-
-			case 72: //вверх
-			case 80: //вниз
-			case 75: //влево
-			case 77: //вправо
-			case 32:  //пробел
-			13 enter
-			27 escape
-	*/
-	
 }
